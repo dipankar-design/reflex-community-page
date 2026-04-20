@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reflex — Join the Community</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0C0C0B;
+  --ink-90: #1A1A18;
+  --ink-70: #3D3D3A;
+  --ink-50: #6B6B66;
+  --ink-30: #A3A39E;
+  --ink-15: #D1D1CC;
+  --ink-08: #E8E8E4;
+  --ink-04: #F4F4F1;
+  --cream: #FAFAF7;
+  --white: #FFFFFF;
+  --green: #005595;
+  --green-mid: #0369A1;
+  --green-bright: #0284C7;
+  --green-pale: #EFF6FF;
+  --green-glow: #DBEAFE;
+  --teal: #0D9488;
+  --teal-pale: #F0FDFA;
+  --amber: #D97706;
+  --amber-pale: #FFFBEB;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ===== NAV ===== */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(24px) saturate(180%);
+  background: rgba(250, 250, 247, 0.85);
+  border-bottom: 1px solid var(--ink-08);
+}
+.nav-inner {
+  max-width: 720px; margin: 0 auto; padding: 0 24px;
+  height: 56px; display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { font-weight: 800; font-size: 18px; color: var(--ink); letter-spacing: -0.4px; text-decoration: none; }
+.nav-logo span { color: var(--green); }
+.nav-link { font-size: 13px; font-weight: 600; color: var(--green); text-decoration: none; padding: 8px 20px; border-radius: 100px; background: var(--green-pale); transition: all 0.2s; }
+.nav-link:hover { background: var(--green-glow); }
+
+/* ===== HERO ===== */
+.hero {
+  max-width: 720px; margin: 0 auto; padding: 72px 24px 64px; text-align: center;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green-pale); border: 1px solid var(--green-glow);
+  border-radius: 100px; padding: 5px 16px 5px 8px;
+  font-size: 12px; font-weight: 700; color: var(--green); margin-bottom: 28px;
+}
+.hero-badge .pulse {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--green-bright);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+.hero h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(32px, 6vw, 52px); font-weight: 400; line-height: 1.12;
+  letter-spacing: -1px; margin-bottom: 20px;
+}
+.hero h1 em { color: var(--green); font-style: italic; }
+.hero-sub {
+  font-size: 17px; line-height: 1.65; color: var(--ink-50);
+  max-width: 520px; margin: 0 auto 36px;
+}
+
+/* ===== FORM ===== */
+.form-wrap {
+  max-width: 460px; margin: 0 auto;
+  display: flex; gap: 10px;
+}
+.form-wrap input[type="text"],
+.form-wrap input[type="email"] {
+  flex: 1; padding: 14px 18px; border-radius: 12px;
+  border: 1.5px solid var(--ink-08); background: var(--white);
+  font-family: inherit; font-size: 15px; color: var(--ink);
+  transition: border-color 0.2s; outline: none;
+}
+.form-wrap input:focus { border-color: var(--green); }
+.form-wrap input::placeholder { color: var(--ink-30); }
+.form-btn {
+  padding: 14px 28px; border-radius: 12px; border: none;
+  background: var(--green); color: white; font-family: inherit;
+  font-size: 15px; font-weight: 700; cursor: pointer;
+  transition: all 0.25s; white-space: nowrap;
+}
+.form-btn:hover { background: #004077; transform: translateY(-1px); box-shadow: 0 6px 24px rgba(0,85,149,0.25); }
+.form-note {
+  font-size: 12px; color: var(--ink-30); margin-top: 12px; text-align: center;
+}
+.form-note strong { color: var(--ink-50); }
+
+/* Full form (name + phone + email stacked) */
+.form-full {
+  max-width: 400px; margin: 0 auto;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.form-full input {
+  padding: 14px 18px; border-radius: 12px;
+  border: 1.5px solid var(--ink-08); background: var(--white);
+  font-family: inherit; font-size: 15px; color: var(--ink);
+  transition: border-color 0.2s; outline: none; width: 100%;
+}
+.form-full input:focus { border-color: var(--green); }
+.form-full input::placeholder { color: var(--ink-30); }
+.form-full .form-btn { width: 100%; padding: 16px; font-size: 16px; border-radius: 12px; }
+
+.form-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+}
+
+/* ===== SOCIAL PROOF STRIP ===== */
+.proof-strip {
+  max-width: 720px; margin: 0 auto; padding: 0 24px;
+}
+.proof-inner {
+  display: flex; justify-content: center; gap: 40px;
+  padding: 32px 0; border-top: 1px solid var(--ink-08);
+  border-bottom: 1px solid var(--ink-08); flex-wrap: wrap;
+}
+.proof-stat { text-align: center; }
+.proof-num { font-size: 28px; font-weight: 800; color: var(--ink); letter-spacing: -0.5px; }
+.proof-num span { color: var(--green); }
+.proof-label { font-size: 12px; color: var(--ink-30); margin-top: 2px; }
+
+/* ===== WHAT YOU GET ===== */
+.benefits {
+  max-width: 720px; margin: 0 auto; padding: 72px 24px;
+}
+.section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--green); margin-bottom: 12px; text-align: center;
+}
+.benefits h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(24px, 4vw, 36px); font-weight: 400; line-height: 1.2;
+  letter-spacing: -0.5px; text-align: center; margin-bottom: 48px;
+}
+.benefits-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.benefit-card {
+  background: var(--white); border: 1px solid var(--ink-08);
+  border-radius: 16px; padding: 28px 24px; text-align: center;
+  transition: all 0.3s;
+}
+.benefit-card:hover { border-color: var(--ink-15); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.04); }
+.benefit-icon {
+  width: 48px; height: 48px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; margin: 0 auto 16px;
+}
+.bi-green { background: var(--green-pale); }
+.bi-teal { background: var(--teal-pale); }
+.bi-amber { background: var(--amber-pale); }
+.benefit-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: var(--ink-90); }
+.benefit-card p { font-size: 13px; color: var(--ink-50); line-height: 1.55; }
+
+/* ===== TESTIMONIALS ===== */
+.testimonials {
+  max-width: 720px; margin: 0 auto; padding: 0 24px 72px;
+}
+.testimonials h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(24px, 4vw, 36px); font-weight: 400; line-height: 1.2;
+  letter-spacing: -0.5px; text-align: center; margin-bottom: 40px;
+}
+.testi-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+}
+.testi-card {
+  background: var(--white); border: 1px solid var(--ink-08);
+  border-radius: 16px; padding: 28px 24px;
+  transition: all 0.3s;
+}
+.testi-card:hover { border-color: var(--green-glow); }
+.testi-quote {
+  font-family: 'Instrument Serif', serif;
+  font-size: 17px; line-height: 1.5; color: var(--ink-70);
+  font-style: italic; margin-bottom: 16px;
+}
+.testi-author { display: flex; align-items: center; gap: 10px; }
+.testi-avatar {
+  width: 36px; height: 36px; border-radius: 50%; background: var(--green-pale);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 13px; color: var(--green);
+}
+.testi-name { font-size: 13px; font-weight: 600; color: var(--ink-70); }
+.testi-detail { font-size: 11px; color: var(--ink-30); }
+.testi-rank {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  color: var(--green); background: var(--green-pale);
+  padding: 2px 8px; border-radius: 100px; margin-bottom: 12px;
+}
+
+
+/* ===== FINAL CTA ===== */
+.final-cta {
+  max-width: 720px; margin: 0 auto; padding: 64px 24px 80px;
+  text-align: center;
+}
+.final-card {
+  background: var(--ink); border-radius: 24px; padding: 56px 48px;
+  position: relative; overflow: hidden;
+}
+.final-card::before {
+  content: ''; position: absolute; top: -100px; right: -100px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(0,85,149,0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+.final-card h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(24px, 4vw, 36px); font-weight: 400; line-height: 1.2;
+  letter-spacing: -0.5px; color: white; margin-bottom: 12px;
+}
+.final-card h2 em { color: var(--green-bright); font-style: italic; }
+.final-card p {
+  font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.6;
+  max-width: 420px; margin: 0 auto 32px;
+}
+/* final-form removed — replaced with WhatsApp CTA */
+.final-note { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 12px; }
+
+/* ===== FOOTER ===== */
+.footer {
+  max-width: 720px; margin: 0 auto; padding: 32px 24px;
+  text-align: center; font-size: 12px; color: var(--ink-30);
+  border-top: 1px solid var(--ink-08);
+}
+.footer a { color: var(--ink-50); text-decoration: none; }
+
+/* ===== FORM STATES ===== */
+.error-msg {
+  display: none; font-size: 13px; color: #DC2626;
+  text-align: left; padding-left: 2px;
+}
+.error-msg.show { display: block; }
+.form-btn.loading { opacity: 0.7; pointer-events: none; }
+.form-btn.success { background: var(--green-bright); pointer-events: none; }
+
+/* ===== WHATSAPP CTA ===== */
+.wa-icon {
+  font-size: 36px; margin-bottom: 16px;
+}
+.wa-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  background: #25D366; color: white; padding: 16px 36px;
+  border-radius: 14px; font-family: inherit; font-size: 16px; font-weight: 700;
+  text-decoration: none; transition: all 0.3s; border: none; cursor: pointer;
+}
+.wa-btn:hover {
+  background: #1ebe5d; transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.3);
+}
+.wa-btn svg { flex-shrink: 0; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .hero { padding: 56px 20px 48px; }
+  .form-wrap { flex-direction: column; }
+  .benefits-grid { grid-template-columns: 1fr; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .proof-inner { gap: 24px; }
+  .final-card { padding: 40px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="https://reflexprep.com" class="nav-logo">reflex<span>.</span></a>
+    <a href="#join" class="nav-link">Join free</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="join">
+  <div class="hero-badge">
+    <span class="pulse"></span>
+    10,000+ medical aspirants already in
+  </div>
+  <h1>Join India's sharpest <em>NEET PG community</em></h1>
+  <p class="hero-sub">Get weekly PYQ breakdowns, high-yield one-liners, topper study strategies, and exam updates — delivered straight to your phone. Free forever.</p>
+
+  <div class="form-full" id="contactForm">
+    <div class="form-row">
+      <input type="text" id="userName" placeholder="Full name" required aria-label="Full name" autocomplete="name">
+      <input type="tel" id="userPhone" placeholder="Mobile number" required aria-label="Mobile number" autocomplete="tel">
+    </div>
+    <input type="email" id="userEmail" placeholder="Email address" required aria-label="Email address" autocomplete="email">
+    <div class="error-msg" id="errorMsg"></div>
+    <button class="form-btn" id="submitBtn" type="button" onclick="handleSubmit()">Join the Reflex community →</button>
+  </div>
+  <p class="form-note">Free. No spam. Unsubscribe anytime. <strong>Join 10,000+ NEET PG aspirants.</strong></p>
+</section>
+
+<!-- SOCIAL PROOF STRIP -->
+<div class="proof-strip">
+  <div class="proof-inner">
+    <div class="proof-stat">
+      <div class="proof-num">10,000<span>+</span></div>
+      <div class="proof-label">Community members</div>
+    </div>
+    <div class="proof-stat">
+      <div class="proof-num">80<span>%</span></div>
+      <div class="proof-label">PYQ strike rate</div>
+    </div>
+    <div class="proof-stat">
+      <div class="proof-num">AIR 30<span>+</span></div>
+      <div class="proof-label">Rankers in community</div>
+    </div>
+    <div class="proof-stat">
+      <div class="proof-num">52</div>
+      <div class="proof-label">Weeks of content</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT YOU GET -->
+<section class="benefits">
+  <div class="section-label">What you'll receive every week</div>
+  <h2>Everything you need to stay sharp — in one place</h2>
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <div class="benefit-icon bi-green">🎯</div>
+      <h4>PYQ pattern breakdowns</h4>
+      <p>Weekly analysis of the most-repeated questions across 14 years of NEET PG and INICET — with the data behind why they keep appearing.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon bi-teal">📝</div>
+      <h4>High-yield one-liners</h4>
+      <p>10 clinical one-liners every Sunday, each tagged with its exact NEET PG repeat count. Screenshot, revise, retain.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon bi-amber">📊</div>
+      <h4>Exam alerts & updates</h4>
+      <p>Registration windows, pattern changes, cutoff predictions, and counselling updates — before everyone else knows.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon bi-green">🧠</div>
+      <h4>Topper study strategies</h4>
+      <p>Monthly deep-dives into the exact routines, resources, and techniques used by AIR 30+ rankers who prepared with Reflex.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon bi-teal">⚡</div>
+      <h4>Quick revision PDFs</h4>
+      <p>One-page rapid revision sheets for every major subject — designed to be printed, pinned on your wall, and revised daily.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon bi-amber">💬</div>
+      <h4>Community challenges</h4>
+      <p>Weekly PYQ challenges with leaderboards. Compete with 10,000+ aspirants. Top scorers get featured and win Reflex Pro upgrades.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-label">From the community</div>
+  <h2>What members are saying</h2>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-rank">AIR 28 — NEET PG</div>
+      <div class="testi-quote">"The weekly PYQ breakdowns became my primary revision tool. I'd screenshot the one-liners every Sunday and revise them before every grand test. This community gave me an edge I didn't get from any paid platform."</div>
+      <div class="testi-author">
+        <div class="testi-avatar">AR</div>
+        <div><div class="testi-name">Dr. Ananya R.</div><div class="testi-detail">AIIMS graduate, 2024</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-rank">AIR 34 — INICET</div>
+      <div class="testi-quote">"I joined the Reflex community in my 3rd year MBBS. By the time I started serious prep, I already knew the top 50 repeat patterns across every subject. That head start was invaluable."</div>
+      <div class="testi-author">
+        <div class="testi-avatar">VK</div>
+        <div><div class="testi-name">Dr. Vikram K.</div><div class="testi-detail">JIPMER graduate, 2024</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-rank">AIR 42 — NEET PG</div>
+      <div class="testi-quote">"The Sunday challenges are addictive. Competing against thousands of aspirants on a timed PYQ quiz — it's the best way to stay consistent. My Pharmacology accuracy went from 55% to 78%."</div>
+      <div class="testi-author">
+        <div class="testi-avatar">SP</div>
+        <div><div class="testi-name">Dr. Shreya P.</div><div class="testi-detail">KEM Mumbai, 2025</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-rank">Intern — 2026 Aspirant</div>
+      <div class="testi-quote">"As an intern with no time, this community is my daily study touchpoint. The morning PYQ, the afternoon one-liner, the evening update — it fits perfectly around ward postings."</div>
+      <div class="testi-author">
+        <div class="testi-avatar">RG</div>
+        <div><div class="testi-name">Dr. Rohan G.</div><div class="testi-detail">GMC Nagpur, Intern</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FINAL CTA — WhatsApp Community Join -->
+<section class="final-cta">
+  <div class="final-card">
+    <div class="wa-icon">💬</div>
+    <h2>Join the conversation on <em>WhatsApp</em></h2>
+    <p>Get daily PYQs, instant exam alerts, topper voice notes, and connect with 10,000+ NEET PG aspirants — all in one group. Tap below to join instantly.</p>
+    <a href="https://chat.whatsapp.com/LNnBglrUwo9KkUlc0JjJSE?mode=gi_t" target="_blank" rel="noopener" class="wa-btn">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Join WhatsApp Community
+    </a>
+    <p class="final-note">Free to join. Active daily. 10,000+ members and growing.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p style="margin-bottom:6px;">
+    <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+    <a href="#">Terms</a> &nbsp;·&nbsp;
+    <a href="https://reflexprep.com">reflexprep.com</a>
+  </p>
+  <p>Reflex is a product of Gooded Technologies Pvt. Ltd.</p>
+</footer>
+
+<script>
+function handleSubmit() {
+  const name = document.getElementById('userName').value.trim();
+  const phone = document.getElementById('userPhone').value.trim();
+  const email = document.getElementById('userEmail').value.trim();
+  const btn = document.getElementById('submitBtn');
+  const error = document.getElementById('errorMsg');
+
+  if (!name || !phone || !email) {
+    error.textContent = 'Please fill in all fields to continue.';
+    error.classList.add('show');
+    return;
+  }
+  if (!email.includes('@') || !email.includes('.')) {
+    error.textContent = 'Please enter a valid email address.';
+    error.classList.add('show');
+    return;
+  }
+  if (phone.replace(/\D/g, '').length < 10) {
+    error.textContent = 'Please enter a valid mobile number.';
+    error.classList.add('show');
+    return;
+  }
+
+  error.classList.remove('show');
+  btn.classList.add('loading');
+  btn.textContent = 'Joining...';
+
+  const SUPABASE_URL = 'https://jftuuctsnkjqoibkxgza.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpmdHV1Y3RzbmtqcW9pYmt4Z3phIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY2ODM2MjMsImV4cCI6MjA5MjI1OTYyM30.lmG7Wu9dt5yHRr2GXmOx2AQ-ejnkT-jC_HKlKDj4BnI';
+
+  fetch(`${SUPABASE_URL}/rest/v1/leads`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': SUPABASE_ANON_KEY,
+      'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+      'Prefer': 'return=minimal'
+    },
+    body: JSON.stringify({ name, phone, email })
+  })
+  .then(res => {
+    if (!res.ok) throw new Error('Submission failed');
+    btn.classList.remove('loading');
+    btn.classList.add('success');
+    btn.textContent = "You\u2019re in! Redirecting...";
+    setTimeout(() => {
+      window.location.href = 'https://chat.whatsapp.com/LNnBglrUwo9KkUlc0JjJSE?mode=gi_t';
+    }, 1500);
+  })
+  .catch(() => {
+    btn.classList.remove('loading');
+    btn.textContent = 'Join the Reflex community →';
+    error.textContent = 'Something went wrong. Please try again.';
+    error.classList.add('show');
+  });
+}
+
+document.querySelectorAll('#contactForm input').forEach(input => {
+  input.addEventListener('input', () => document.getElementById('errorMsg').classList.remove('show'));
+  input.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleSubmit(); });
+});
+</script>
+
+</body>
+</html>
